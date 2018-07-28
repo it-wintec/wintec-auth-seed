@@ -18,9 +18,9 @@ class CheckName
         // echo $request->name;
         // exit('11');
         
-        if ($request->name != 'jack') {
-            return redirect('kkkkk');
-        }
+        // if ($request->name != 'jack') {
+        //     return redirect('kkkkk');
+        // }
         return $next($request);
     }
 }
