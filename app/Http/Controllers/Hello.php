@@ -11,10 +11,7 @@ class Hello extends Controller
   function index()
   {
     // $data = DB::select("select 123;");
-    $data = $users = DB::table('users')->get();
-
-    echo "<pre>";
-    var_dump($data);
+    // $data = $users = DB::table('users')->get();
     
     return 'Hello index finished.';
   }
@@ -27,9 +24,16 @@ class Hello extends Controller
   
   function insert() 
   {
-    DB::table('users')->insert(
-      ['email' => 'yyddrr@gmail.com', 'name' => "Jack Yang", 'password' => '123456']
-    );
+    var_dump('123');
+    // DB::table('users222')->insert(
+    //   ['email' => 'yyddrr@gmail.com', 'name' => "Jack Yang", 'password' => '123456']
+    // );
+  }
+  
+  function phpinfo()
+  {
+    phpinfo();
+    exit();
   }
 
 }

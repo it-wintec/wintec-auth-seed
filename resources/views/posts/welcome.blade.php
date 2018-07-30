@@ -13,13 +13,24 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         
         <style>
-          .toplink{text-align:center;}
+          
         </style>
     </head>
     <body>
-      <div class="toplink">
-          <p>Welcome to Posts Application: <?php echo $name ?></p>
-          <a href="viewallposts">View All Posts</a>
+      <nav class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="welcome">Welcome</a></li>
+          <li class="nav-item"><a class="nav-link" href="viewallposts">All Posts</a></li>
+        </ul>
+      </nav>
+      
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col text-center">
+            <p>Welcome to Posts Application: <?php echo $name ?></p>
+          </div>
+        </div>
       </div>
+      
     </body>
 </html>

@@ -13,21 +13,29 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
        
         <style>
-          .toplink{text-align:center;}
+          
         </style>
     </head>
     <body>
-      <div class="toplink">
-          <a href="welcome">Back Welcome</a>
-          <div>
-             
-             <ul class="list-unstyled">
-				@foreach($posts as $post)
-					<li> {{$post}} </li> 
-				@endforeach
-			 </ul>
-
+      <nav class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="welcome">Welcome</a></li>
+          <li class="nav-item"><a class="nav-link" href="viewallposts">All Posts</a></li>
+        </ul>
+      </nav>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+          <table class="table table-striped">
+            	@foreach($posts as $post)
+            <tr>
+              <td>{{$post->title}}</td>
+              <td>{{$post->content}}</td>
+            </tr>
+            	@endforeach
+          </table>
           </div>
+        </div>
       </div>
     </body>
 </html>

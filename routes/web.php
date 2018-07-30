@@ -15,25 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/list', function () {
-    return view('list');
-});
-
 Route::get('/hello', 'Hello@index');
-Route::get('/show/{name}', 'Hello@show');
 Route::get('/hello/insert', 'Hello@insert');
-Route::resource('post', 'PostController');
+Route::get('/hello/phpinfo', 'Hello@phpinfo');
+Route::get('/hello/{name}', 'Hello@show');
 
 Route::get('posts/welcome', function () {
     $name='Ayesha Jack';
 	return view('posts/welcome', compact('name'));
 });
 
-Route::get('posts/viewallposts', function () { 
-    $posts=	[
-        'First Post',			
-        'Second Post',
-		'Third Post'];
+Route::get('posts/viewallposts', function () {
+    $posts = DB::table('posts')->get();
     return view('posts/viewallposts', compact('posts'));
 });
 
