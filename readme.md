@@ -4,6 +4,8 @@
 ## About Comp710-horse
 
 Comp710-horse is for learning communication only, the code is not fully tested.
+Tutor: Ayesha
+Author: Jack
 
 ## Security Vulnerabilities
 
