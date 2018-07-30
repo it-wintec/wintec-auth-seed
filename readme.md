@@ -15,7 +15,7 @@ Author: Jack
 2.	Cloud9 development platform
 3.	Composer manage php library
 4.	Npm manage js library
-5.	Used laracasts/generators migrations and feed data. It can automatically generate database structure, test data, entity class, controller. Save more time.
+5.	Used laracasts/generators migrations and feed data. It can automatically generate database structure, test data, entity class, controllers. Save more time.
 6.	Used bootstrap4, only css.
 
 ## Security Vulnerabilities
