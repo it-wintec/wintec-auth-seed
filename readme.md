@@ -5,9 +5,18 @@
 
 Comp710-horse is for learning communication only, the code is not fully tested.
 
+Github: https://github.com/jaguaryang/comp710-horse
+
 Tutor: Ayesha
 
 Author: Jack
+
+1.	Ubuntu14.04.1 + PHP 7.1.20 + Laravel 5.6.28 + mysql5.5.57 + Apache2.4.7
+2.	Cloud9 development platform
+3.	Composer manage php library
+4.	Npm manage js library
+5.	Used laracasts/generators migrations and feed data. It can automatically generate database structure, test data, entity class, controller. Save more time.
+6.	Used bootstrap4, only css.
 
 ## Security Vulnerabilities
 
