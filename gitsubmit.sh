@@ -1,4 +1,6 @@
 #!/bin/bash
+#01-08-2018
+#Jack Yang yyddrr@gmail.com
 
 echo "输入更新日志[ENTER]:"
 read text
