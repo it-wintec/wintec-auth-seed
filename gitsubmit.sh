@@ -2,6 +2,7 @@
 
 echo "输入更新日志[ENTER]:"
 read text
+
 if [[ -z "$text" ]]; then
     text="No specified information"
 fi
