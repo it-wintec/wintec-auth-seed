@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "输入更新日志[ENTER]:"
+echo "输入更新日志[ENTER]1:"
 read text
 
 git status
