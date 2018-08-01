@@ -1,5 +1,9 @@
+#!/bin/bash
+
+echo "输入更新日志[ENTER]:"
+read text
+
 git status
-git add hello-world.php
 git add -A .
-git commit -m "Lab2 Update"
+git commit -m $text
 git push origin master

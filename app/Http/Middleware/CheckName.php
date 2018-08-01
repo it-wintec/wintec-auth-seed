@@ -15,12 +15,12 @@ class CheckName
      */
     public function handle($request, Closure $next)
     {
-        // echo $request->name;
-        // exit('11');
+        $response = $next($request);
         
         // if ($request->name != 'jack') {
         //     return redirect('kkkkk');
         // }
-        return $next($request);
+        
+        return $response;
     }
 }
