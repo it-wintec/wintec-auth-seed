@@ -19,7 +19,7 @@ class CheckName
         
         // if ($request->name != 'jack') {
         //     return redirect('kkkkk');
-        // } test
+        // } test 2
         
         return $response;
     }
