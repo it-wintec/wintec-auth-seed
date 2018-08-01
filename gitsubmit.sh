@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 echo "输入更新日志[ENTER]:"
 read text
 
