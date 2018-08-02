@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8a46512be0792f3e320645cf4344b1e4
+class ComposerStaticInit4a67bd3112905fd27fc267fe7e1fc2f8
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -331,10 +331,8 @@ class ComposerStaticInit8a46512be0792f3e320645cf4344b1e4
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\Hello' => __DIR__ . '/../..' . '/app/Http/Controllers/Hello.php',
-        'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
-        'App\\Http\\Middleware\\CheckName' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckName.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
@@ -346,6 +344,7 @@ class ComposerStaticInit8a46512be0792f3e320645cf4344b1e4
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -3399,6 +3398,7 @@ class ComposerStaticInit8a46512be0792f3e320645cf4344b1e4
         'Symfony\\Component\\HttpKernel\\HttpCache\\Ssi' => __DIR__ . '/..' . '/symfony/http-kernel/HttpCache/Ssi.php',
         'Symfony\\Component\\HttpKernel\\HttpCache\\Store' => __DIR__ . '/..' . '/symfony/http-kernel/HttpCache/Store.php',
         'Symfony\\Component\\HttpKernel\\HttpCache\\StoreInterface' => __DIR__ . '/..' . '/symfony/http-kernel/HttpCache/StoreInterface.php',
+        'Symfony\\Component\\HttpKernel\\HttpCache\\SubRequestHandler' => __DIR__ . '/..' . '/symfony/http-kernel/HttpCache/SubRequestHandler.php',
         'Symfony\\Component\\HttpKernel\\HttpCache\\SurrogateInterface' => __DIR__ . '/..' . '/symfony/http-kernel/HttpCache/SurrogateInterface.php',
         'Symfony\\Component\\HttpKernel\\HttpKernel' => __DIR__ . '/..' . '/symfony/http-kernel/HttpKernel.php',
         'Symfony\\Component\\HttpKernel\\HttpKernelInterface' => __DIR__ . '/..' . '/symfony/http-kernel/HttpKernelInterface.php',
@@ -3716,10 +3716,10 @@ class ComposerStaticInit8a46512be0792f3e320645cf4344b1e4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8a46512be0792f3e320645cf4344b1e4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8a46512be0792f3e320645cf4344b1e4::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit8a46512be0792f3e320645cf4344b1e4::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit8a46512be0792f3e320645cf4344b1e4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit4a67bd3112905fd27fc267fe7e1fc2f8::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit4a67bd3112905fd27fc267fe7e1fc2f8::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit4a67bd3112905fd27fc267fe7e1fc2f8::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit4a67bd3112905fd27fc267fe7e1fc2f8::$classMap;
 
         }, null, ClassLoader::class);
     }

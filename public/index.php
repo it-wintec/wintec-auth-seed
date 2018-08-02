@@ -1,26 +1,5 @@
 <?php
 
-// $servername = getenv('IP');
-// $servername = 'localhost';
-// $username = getenv('C9_USER');
-// $password = "";
-// $database = "c9";
-// $dbport = 3306;
-
-
-// var_dump($servername);
-
-// // Create connection
-// $db = new mysqli($servername, $username, $password, $database, $dbport);
-
-// // Check connection
-// if ($db->connect_error) {
-//     die("Connection failed: " . $db->connect_error);
-// } 
-// echo "Connected successfully (".$db->host_info.")";
-
-// exit();
-
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

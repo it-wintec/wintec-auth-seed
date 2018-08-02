@@ -11,24 +11,17 @@
 |
 */
 
+// default router
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/hello', 'Hello@index');
-Route::get('/hello/insert', 'Hello@insert');
-Route::get('/hello/phpinfo', 'Hello@phpinfo');
-Route::get('/hello/{name}', 'Hello@show');
-
-Route::get('posts/welcome', function () {
-    $name='Ayesha Jack';
-	return view('posts/welcome', compact('name'));
-});
-
-Route::get('posts/viewallposts', function () {
+// Begin custom router
+Route::get('/phpinfo', 'Common@phpinfo');
+Route::get('/viewallposts', function () {
     $posts = DB::table('posts')->get();
-    return view('posts/viewallposts', compact('posts'));
+    return view('posts.viewallposts', compact('posts'));
 });
-
-
 

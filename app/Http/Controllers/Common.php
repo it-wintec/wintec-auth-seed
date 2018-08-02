@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Post;
 
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class Common extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -80,5 +81,19 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function phpinfo()
+    {
+        
+        phpinfo();
+        exit();
+        
+        $posts = Post::all();
+        // $posts = \DB::table('posts')->get();
+        
+        return $posts; 
+        // return view('common.index', compact('posts'));
+        
     }
 }
