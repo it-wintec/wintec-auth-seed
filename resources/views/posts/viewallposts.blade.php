@@ -21,6 +21,11 @@
                     @endif
                     
                   <table class="table table-striped">
+                      <tr>
+                          <th>Title</th>
+                          <th>Content</th>
+                          <th colspan="3" class="text-center">Operation</th>
+                      </tr>
                     @foreach($posts as $post)
                     <tr>
                       <td>{{$post->title}}</td>
