@@ -19,20 +19,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
-                  <table class="table table-striped">
-                    @foreach($posts as $post)
-                    <tr>
-                      <td>{{$post->title}}</td>
-                      <td>{{$post->content}}</td>
-                      <td><a href="/viewonepost?id={{$post->id}}">View</a></td>
-                      <td><a href="/updateonepost?id={{$post->id}}">Update</a></td>
-                      <td><a href="/post/delete?id={{$post->id}}">Delete</a></td>
-                    </tr>
-                    	@endforeach
-                  </table>
-          
-          
+                    <dl>
+                        <dd> Post Title:</dd> <dt class="mb-5"> {{ $post->title }} </dt>
+                        <dd> Post Content:</dd><dt> {{ $post->content }} </dt>
+                    </dl>
                 </div>
             </div>
         </div>

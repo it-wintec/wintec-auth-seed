@@ -5,7 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">
+                    <ul class="list-unstyled list-inline mb-0">
+                        <li class="list-inline-item"><a href="/postwelcome">welcome</a></li>
+                        <li class="list-inline-item"><a href="/addpost">Add Post</a></li>
+                        <li class="list-inline-item"><a href="/viewallposts">View All Posts</a></li>
+                    </ul>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,7 +19,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
+          welcome
+          
                 </div>
             </div>
         </div>

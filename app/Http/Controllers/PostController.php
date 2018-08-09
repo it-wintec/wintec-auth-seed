@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use Illuminate\Http\RedirectResponse\Redirect;
 
-class Post extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +25,16 @@ class Post extends Controller
      */
     public function create()
     {
-        //
+        echo "<pre>";
+        print_r($_POST);
+        
+        $post = new Post;
+        $post->title = $_POST['title'];
+        $post->content = $_POST['content'];
+        $post->save();
+         
+        return redirect(route('viewallposts'));
+
     }
 
     /**
@@ -45,7 +56,7 @@ class Post extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -80,5 +91,45 @@ class Post extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function viewonepost() {
+        
+        $id = $_GET['id'];
+        $post = \DB::table('posts')->where('id', $id)->first();
+        
+        return \View::make("posts.viewonepost")->with("post", $post);
+
+        // var_dump($post);
+        // return "viewonepost";
+    }
+    
+    public function postdelete() {
+        
+        $id = $_GET['id'];
+        Post::where('id',$id)->delete();
+        
+        return redirect(route('viewallposts'));
+    }
+    
+    public function updateonepost() {
+        
+        $id = $_GET['id'];
+        $post = \DB::table('posts')->where('id', $id)->first();
+        
+        return \View::make("posts.updateonepost")->with("post", $post);
+    }
+    
+    public function updateonepostaction() {
+        
+        $post = Post::find($_POST["id"]);
+        $post->title = $_POST["title"];
+        $post->content = $_POST["content"];
+        $post->save();
+        
+        return redirect(route('viewallposts'));
+        
+        var_dump($post);
+        exit('update one post action');
     }
 }
