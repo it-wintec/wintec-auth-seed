@@ -112,7 +112,7 @@ class PostController extends Controller
         return redirect(route('viewallposts'));
     }
     
-    public function updateonepost() {
+    public function updateonepost(Request $request) {
         
         $id = $_GET['id'];
         $post = \DB::table('posts')->where('id', $id)->first();
@@ -120,11 +120,17 @@ class PostController extends Controller
         return \View::make("posts.updateonepost")->with("post", $post);
     }
     
-    public function updateonepostaction() {
+    public function updateonepostaction(Request $request) {
         
         $post = Post::find($_POST["id"]);
         $post->title = $_POST["title"];
         $post->content = $_POST["content"];
+        
+        $validatedData = $request->validate([
+            'title' => 'email',
+            'content' => 'max:255|min:5',
+        ]);
+        
         $post->save();
         
         return redirect(route('viewallposts'));

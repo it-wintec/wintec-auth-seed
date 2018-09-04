@@ -19,29 +19,37 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <dl>
-                        <dd> Post Title:</dd> <dt class="mb-5"> {{ $post->title }} </dt>
-                        <dd> Post Content:</dd><dt> {{ $post->content }} </dt>
-                    </dl>
+                    <!--<dl>-->
+                    <!--    <dd> Post Title:</dd> <dt class="mb-5"> {{ $post->title }} </dt>-->
+                    <!--    <dd> Post Content:</dd><dt> {{ $post->content }} </dt>-->
+                    <!--</dl>-->
+                
                     
-                    
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="list-unstyled mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
            
-                    
                     
                     {!! Form::open(['url' => '/updateonepost']) !!}
                     
                     <div class="form-group">
-                    {!! Form::label('title', 'title'); !!}
-                    {!! Form::text('title', $post->title); !!}
+                    {!! Form::label('title', 'Post Title'); !!}
+                    {!! Form::text('title', $post->title, array_merge(['class' => 'form-control'])); !!}
                      </div>
                     
                     <div class="form-group">
-                    {!! Form::label('content', 'content'); !!}
-                    {!! Form::textarea('content', $post->content); !!}
+                    {!! Form::label('content', 'Post Content'); !!}
+                    {!! Form::textarea('content', $post->content, array_merge(['class' => 'form-control'])); !!}
                     </div>
                     
                     <div class="form-group">
-                    {!! Form::submit('Update Post');  !!}
+                    {!! Form::submit('Update Post', array_merge(['class' => 'btn btn-primary']));  !!}
                     </div>
                     
                     {!! Form::hidden('id', $post->id); !!}
