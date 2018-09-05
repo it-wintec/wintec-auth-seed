@@ -1,0 +1,14 @@
+#!/bin/sh
+# Copyright 2008-2017 Dropbox, Inc.
+#
+# Environment script for the `dropbox` executable. Should be idempotent.
+PAR=$(dirname "$(readlink -f "$0")")
+
+# Make sure `LD_LIBRARY_PATH` is not affected when we launch a subprocess.
+if [ -z "$OLD_LD_LIBRARY_PATH" ]; then
+    OLD_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
+    export OLD_LD_LIBRARY_PATH
+fi
+
+export QT_PLUGIN_PATH=
+exec "$PAR"/dropbox "$@"
