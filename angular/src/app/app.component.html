@@ -1,0 +1,63 @@
+<div class='hero'>
+
+  <!--title and loading-->
+  <mat-spinner [diameter]="50" *ngIf="isLoading === true" class="spinner"></mat-spinner>
+  <h3>My Heros</h3>
+  
+  <!--add a new hero-->
+  <div class="wrap">
+    <table mat-table class="mat-elevation-z8">
+      <tr>
+        <td class="text-right">Hero name : </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="New Hero name" value="{name}" [(ngModel)]="name">
+          </mat-form-field>
+        </td>
+        <td><button mat-raised-button (click)="create()">Add</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <!--all heros list-->
+  <table mat-table class="mat-elevation-z8">
+    <tr>
+      <td>
+        <mat-list>
+          <mat-list-item *ngFor="let hero of heroes">
+            <h3 mat-line>
+              <mat-chip-list>
+                <mat-chip color="primary" selected>{{hero.id}}</mat-chip>
+                <mat-chip>{{hero.name}}</mat-chip>
+              </mat-chip-list>
+            </h3>
+            <button mat-icon-button (click)="edit(hero)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="delete(hero)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <mat-divider *ngIf="isNotLast(hero)"></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </td>
+    </tr>
+  </table>
+
+  <!--edit a hero-->
+  <div class="wrap" *ngIf="isEdit">
+    <h3>{{curhero.name}} details!</h3>
+    <table mat-table class="mat-elevation-z8">
+      <tr>
+        <td class="text-right">ID: {{curhero.id}} </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="Edit Hero name" value="{curhero.name}" [(ngModel)]="curhero.name">
+          </mat-form-field>
+        </td>
+        <td><button mat-raised-button (click)="update()">Update To Server</button></td>
+      </tr>
+    </table>
+  </div>
+
+</div>

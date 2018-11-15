@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Boss Cuts Barber Shop</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="keywords" content=""/>
+	<script type="application/x-javascript"> addEventListener("load", function () {
+		setTimeout(hideURLbar, 0);
+	}, false);
+	function hideURLbar() {
+		window.scrollTo(0, 1);
+	} </script>
+	<!-- //for-mobile-apps -->
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+	<!-- Custom Theme files -->
+	<link rel="stylesheet" href="css/jquery-ui.css"/>
+	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="all"/>
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+	<link href="css/style.css?v=3" rel='stylesheet' type='text/css'/>
+	<!-- js -->
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<!-- //js -->
+	<!-- Custom Theme files -->
+	<!--webfont-->
+	<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+	<style>
+		* { font-family : 'Abel', sans-serif; font-size : 1em; }
+
+	</style>
+	<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+			});
+		});
+	</script>
+	<!-- start-smoth-scrolling -->
+	<script src="js/responsiveslides.min.js"></script>
+	<script>
+		// You can also use "$(window).load(function() {"
+		$(function () {
+			// Slideshow 4
+			$("#slider3").responsiveSlides({
+				auto: true,
+				pager: false,
+				nav: false,
+				speed: 500,
+				namespace: "callbacks",
+				before: function () {
+					$('.events').append("<li>before event fired.</li>");
+				},
+				after: function () {
+					$('.events').append("<li>after event fired.</li>");
+				}
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(window).load(function () {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 3,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: {
+					portrait: {
+						changePoint: 480,
+						visibleItems: 1
+					},
+					landscape: {
+						changePoint: 640,
+						visibleItems: 1
+					},
+					tablet: {
+						changePoint: 1080,
+						visibleItems: 2
+					}
+				}
+			});
+
+		});
+	</script>
+	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+	<!---start-date-piker---->
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		$(function () {
+			$("#datepicker,#datepicker1").datepicker();
+		});
+	</script>
+	<!---/End-date-piker---->
+	<!--animate-->
+	<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+	<script src="js/wow.min.js"></script>
+	<script>
+		new WOW().init();
+	</script>
+	<!--//end-animate-->
+</head>
+<body>
+<div class="banner w3l">
+	<div class="navigation wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="logo">
+						<div class="grid__item color-3">
+							<h1><a class="link link--nukun" href="index.html"><span>B</span>oss <span>C</span>uts<i>The original boss
+								style</i></a></h1>
+						</div>
+					</div>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+					<nav class="menu menu--horatio">
+						<ul class="nav navbar-nav menu__list">
+							<li class="menu__item menu__item--current"><a href="index.html" class="menu__link">Home</a></li>
+							<li class="menu__item"><a href="#about" class="menu__link scroll">About</a></li>
+							<li class="menu__item"><a href="#services" class="menu__link scroll">Ideas</a></li>
+							<li class="menu__item"><a href="#treatments" class="menu__link scroll">Gallery</a></li>
+							<li class="menu__item"><a href="#prices" class="menu__link scroll">Services</a></li>
+							<li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
+							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>
+
+						</ul>
+					</nav>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="banner-info wow bounceInDown" data-wow-duration="1s" data-wow-delay="0s">
+		<div class="container">
+			<div class="callbacks_container">
+				<ul class="rslides" id="slider3">
+					<li>
+						<div class="banner-text">
+							<h3>Boss Cuts Barshp Shop</h3>
+							<h4>The best barber shop in Hamilton</h4>
+							<p>The best experience you never meet before.</p>
+							<div class="clearfix"></div>
+						</div>
+					</li>
+					<li>
+						<div class="banner-text">
+							<h3>Your Private Barber</h3>
+							<h4>Just for you</h4>
+							<p>High quality services with high quality products.</p>
+							<div class="clearfix"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+<!--banner bottom-->
+<div id="services" class="services all_pad w3ls">
+	<div class="container">
+		<h3 class="title">
+			The Original Boss Style
+			<span></span></h3>
+		<div class="ser-top-grids">
+			<div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+				<div class="con-left text-center">
+					<div class="spa-ico"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
+					<h5>Our Goal </h5>
+					<p>A successful man always has a goal and strives to realize the goal.
+						Our goal is help you to achieve it!</p>
+
+				</div>
+			</div>
+			<div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+				<div class="con-left text-center">
+					<div class="spa-ico"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></div>
+					<h5>Professional</h5>
+					<p>We focus on what is the best style for individuals. <br>
+						We are professional.</p>
+
+				</div>
+			</div>
+			<div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+				<div class="con-left text-center">
+					<div class="spa-ico"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></div>
+					<h5>Values</h5>
+					<p>You will be avant garde when you leave Boss Cuts Barber shop.<br>
+						Boss start from Boss Cuts</p>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--//banner bottom-->
+<div id="about" class="feature all_pad wthree">
+	<div class="container">
+		<h3 class="title">About Us<span></span></h3>
+		<p class="para">
+			Boss Barber shop has been in business for more than 10 years.
+			We provide hairdressing services for countless Hamilton people.
+			We are not just about haircuts,
+			we are not just doing arts, we are realizing dreams for every customer.
+			That's it, our philosophy is to be the best Barber shop in Hamilton.
+		</p>
+		<div class="about-grids">
+			<div class="col-md-6 feature-grid-one wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
+				<div class="port-8 effect-3">
+					<div class="image-box">
+						<img src="images/p8.jpg?q=2" alt="Image-3">
+					</div>
+					<div class="text-desc">
+						<h4>Hair Styles</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 feature-grid wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
+				<h4>Promotions<span>Our special price</span></h4>
+				<p>
+				<ul style="list-unstyled">
+					<li>Seniors: 20%</li>
+					<li>Kids: 30%</li>
+					<li>New client: 10%</li>
+				</ul>
+				</p>
+				<!--<a href="#small-dialog" class="play-icon popup-with-zoom-anim hvr-rectangle-out button">BOOK AN APPOINTMENT</a>-->
+				<!--<a href="#treatments" class="hvr-rectangle-in button red scroll">OUR PRODUCTS</a>-->
+				<!-- pop-up-box -->
+				<script type="text/javascript" src="js/modernizr.custom.min.js"></script>
+				<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+				<!--//pop-up-box -->
+				<div id="small-dialog" class="mfp-hide">
+					<div class="appoint reg">
+						<form action="#" method="post">
+							<ul>
+								<li class="text-info">Select Date:</li>
+								<li>
+									<input class="date" id="datepicker" type="text" value="19/10/2016" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '19/10/2016';}" required="">
+								</li>
+							</ul>
+							<ul>
+								<li class="text-info">Select Service:</li>
+								<li>
+									<div class="section_room">
+										<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+											<option value="null">Facials</option>
+											<option value="null">Hair cut</option>
+											<option value="null">Spa</option>
+											<option value="null">Pedicure</option>
+											<option value="null">Manicure</option>
+										</select>
+									</div>
+								</li>
+							</ul>
+							<ul>
+								<li class="text-info">Your Name:</li>
+								<li><input type="text" name="John Smith" placeholder="John Smith" required=""></li>
+							</ul>
+							<ul>
+								<li class="text-info">Email:</li>
+								<li><input type="email" name="info@example.com" placeholder="info@example.com" required=""></li>
+							</ul>
+							<ul>
+								<li class="text-info">Mobile Number:</li>
+								<li><input type="text" name="1234567890" placeholder="1234567890" required=""></li>
+							</ul>
+							<input type="submit" value="BOOK NOW">
+						</form>
+					</div>
+				</div>
+				<script>
+					$(document).ready(function () {
+						$('#notesend').on('click',function () {
+							alert('todo: send to database or email to');
+						});
+					});
+				</script>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- our prices -->
+<div id="prices" class="prices all_pad agile wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
+	<div class="container">
+		<h3 class="title">Online Booking<span></span></h3>
+		<div class="prices-grids">
+			<div class="col-md-4 prices-grd">
+				<div class="price-back">
+					<div class="price-head hexagon_box">
+						<h4>Haircuts</h4>
+					</div>
+					<div class="price-pad">
+						<ul>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Multiple hairstyles</a>
+							</li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Personality shape</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Beard trim</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Other customization</a>
+							</li>
+						</ul>
+						<p>$30</p>
+						<div class="price-book">
+							<a href="/booking?sid=1" target="_blank" class="play-icon popup-with-zoom-anim">Book Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 prices-grd">
+				<div class="price-back">
+					<div class="price-head hexagon_box">
+						<h4>Dye Hair</h4>
+					</div>
+					<div class="price-pad">
+						<ul>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Multiple colors</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Never fade</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Fast coloring</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Change from color</a></li>
+						</ul>
+						<p>$45</p>
+						<div class="price-book">
+							<a href="/booking?sid=2" target="_blank" class="play-icon popup-with-zoom-anim">Book Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 prices-grd">
+				<div class="price-back">
+					<div class="price-head hexagon_box">
+						<h4>Perm Hair</h4>
+					</div>
+					<div class="price-pad">
+						<ul>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Multiple hairstyles</a>
+							</li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Not hurting hair</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Not forked</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Change from perm</a></li>
+						</ul>
+						<p>$60</p>
+						<div class="price-book">
+							<a href="/booking?sid=3" target="_blank" class="play-icon popup-with-zoom-anim">Book Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //our prices -->
+<!-- team -->
+<div id="team" class="team-content all_pad agileits wow fadeInUp animated" data-wow-delay=".5s">
+	<div class="container">
+		<h3 class="title">Our Team <span></span></h3>
+		<p class="para">Our hairdressing team has 4 years haircuts experience, know well the recently popular styles.
+			Lots of companies in Hamilton have cooperation with us</p>
+		<div class="team-grids">
+			<div class="col-md-4 team-gd">
+				<div class="team-left">
+					<div class="team-top">
+
+					</div>
+					<div class="team-bottom">
+						<h4>Blaine</h4>
+						<p>Manager</p>
+					</div>
+					<div class="t-img">
+						<img src="images/team1.jpg?v=2" alt=" "/>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 team-gd">
+				<div class="team-left">
+					<div class="team-top">
+
+					</div>
+					<div class="team-bottom">
+						<h4>Victoria</h4>
+						<p>Barber</p>
+					</div>
+					<div class="t-img">
+						<img src="images/team4.jpg" alt=" "/>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 team-gd">
+				<div class="team-left">
+					<div class="team-top">
+
+					</div>
+					<div class="team-bottom">
+						<h4>Federica</h4>
+						<p>Assistant</p>
+					</div>
+					<div class="t-img">
+						<img src="images/team3.jpg" alt=" "/>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //team -->
+<div id="treatments" class="treatments all_pad w3 wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+	<div class="container">
+		<h3 class="title">Gallery<span></span></h3>
+		<p class="para">Our barber shop offers many high quality and different kinds of hairdressing products.
+			The latest and the most popular products, you will experience and shopping in our shop.</p>
+	</div>
+	<div class="treat-grids">
+		<div class="flex-slider wow fadeInDown animated" data-wow-delay=".5s">
+			<ul id="flexiselDemo1">
+				<li>
+					<div class="laptop">
+						<a class="example-image-link" href="images/g1.jpg?v=2" data-lightbox="example-1" data-title="Boss Barber Shop">
+
+							<div class="pets-effect ver_line zoom">
+								<div class="img-box"><img class="img-responsive zoom-img" src="images/g1.jpg?v=2" alt=" "/></div>
+								<div class="pets-info">
+									<div class="pets-info-slid">
+										<h4>The best equipment</h4>
+										<span class="strip_line"></span>
+										<p>
+											I like the fact when we arrive, my son jumps on a chair and they know what to do with out even
+											asking lol .... my son loves coming here, i think we have been customers for 18months now :)
+										</p>
+										<span class="strip_line"></span>
+									</div>
+								</div>
+
+							</div>
+						</a>
+						<div class="pets-effect-btm">
+							<h5>The best equipment</h5>
+							<p>
+								I like the fact when we arrive, my son jumps on a chair and they know what to do with out even asking
+								lol .... my son loves coming here, i think we have been customers for 18months now :)
+							</p>
+						</div>
+
+					</div>
+				</li>
+				<li>
+					<div class="laptop">
+						<a class="example-image-link" href="images/g2.jpg?v=2" data-lightbox="example-1" data-title="Boss Barber Shop">
+							<div class="pets-effect ver_line zoom">
+								<div class="img-box"><img class="img-responsive zoom-img" src="images/g2.jpg?v=2" alt=" "/></div>
+								<div class="pets-info">
+									<div class="pets-info-slid">
+										<h4>Love in the moment</h4>
+										<span class="strip_line"></span>
+										<p>
+											Too much for the fresh doo brother will definitely be mine and my sons regular barber for sure and
+											will def be spreading the name around cuzz
+										</p>
+										<span class="strip_line"></span>
+									</div>
+								</div>
+
+							</div>
+						</a>
+						<div class="pets-effect-btm">
+							<h5>Love in the moment</h5>
+							<p>
+								Too much for the fresh doo brother will definitely be mine and my sons regular barber for sure and will
+								def be spreading the name around cuzz
+							</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="laptop">
+						<a class="example-image-link" href="images/g3.jpg" data-lightbox="example-1" data-title="Boss Barber Shop">
+							<div class="pets-effect ver_line zoom">
+								<div class="img-box"><img class="img-responsive zoom-img" src="images/g3.jpg" alt=" "/></div>
+								<div class="pets-info">
+									<div class="pets-info-slid">
+										<h4>The Best Products</h4>
+										<span class="strip_line"></span>
+										<p>Thanks to the brothers and sisters from Ignight Beats that came down to vibe at the shop over the
+											weekend, not to mention the 🔥🔥🔥 bought to The Local Te Rapa the Saturday before. Only the
+											beginning fam!
+										</p>
+										<span class="strip_line"></span>
+									</div>
+								</div>
+							</div>
+						</a>
+						<div class="pets-effect-btm">
+							<h5>The Best Products</h5>
+							<p>
+								Thanks to the brothers and sisters from Ignight Beats that came down to vibe at the shop over the
+								weekend, not to mention the 🔥🔥🔥 bought to The Local Te Rapa the Saturday before. Only the beginning
+								fam!
+							</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="laptop">
+						<a class="example-image-link" href="images/g4.jpg?v=2" data-lightbox="example-1" data-title="Boss Barber Shop">
+							<div class="pets-effect ver_line zoom">
+								<div class="img-box"><img class="img-responsive zoom-img" src="images/g4.jpg?v=2" alt=" "/></div>
+								<div class="pets-info">
+									<div class="pets-info-slid">
+										<h4>Handsome staffs</h4>
+										<span class="strip_line"></span>
+										<p>
+											BIG BOSS shout out to the brother Zak Hoskin from Hoskin Racing Developments coming down over the
+											weekend with his beast;
+										</p>
+										<span class="strip_line"></span>
+									</div>
+								</div>
+							</div>
+						</a>
+						<div class="pets-effect-btm">
+							<h5>Handsome staffs</h5>
+							<p>BIG BOSS shout out to the brother Zak Hoskin from Hoskin Racing Developments coming down over the
+								weekend with his beast;</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<script src="js/lightbox.js"></script>
+
+		</div>
+	</div>
+</div>
+<!-- contact -->
+<div id="contact" class="contact all_pad w3agile wow bounceInUp" data-wow-duration="1s" data-wow-delay="0s">
+	<div class="container">
+		<h3 class="title">Contact<span></span></h3>
+		<p class="para">If you want to know more about us, please contact us with below messages. </p>
+		<div class="col-md-7 contact-left">
+			<h4>Keep In Touch</h4>
+			<form1 action="#" method="post">
+				<div class="form-left">
+					<input type="text" value="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
+				</div>
+				<div class="form-right">
+					<input type="email address" value="Email" name="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
+				</div>
+				<div class="clearfix"></div>
+				<input type="text" value="Subject" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
+				<textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}" required>Message</textarea>
+				<input type="submit" id="notesend" value="Send">
+			</form1>
+		</div>
+		<div class="col-md-5 contact-right">
+			<div class="map-grid">
+				<h4>View On Map</h4>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12616.244145672854!2d175.2791428!3d-37.765167!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa39934df5e809998!2sBoss+Cuts+Barber+Shop!5e0!3m2!1szh-CN!2snz!4v1537932635099" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+			</div>
+			<div class="map-grid">
+				<h6>Boss Cuts Barber Shop</h6>
+				<div class="footer-bottom">
+					<a class="fb" target="_blank" href="https://www.facebook.com/bosscutsnz/"></a>
+					<a class="twi" href="javascript:void(0);"></a>
+					<a class="pin" href="javascript:void(0);"></a>
+				</div>
+			</div>
+			<div class="map-grid">
+				<p>174 Clarkin Rd<span>Fairfield, Hamilton</span></p>
+				<p>Phone : 07-855 6874</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+		<p class="copy-right agileinfo">
+			Copyright &copy; Boss Cuts Barber Shop All rights reserved.
+			<br>
+			Wintec provides technical
+			support.
+		</p>
+	</div>
+</div>
+<!-- //contact -->
+<!-- smooth scrolling -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		/*
+		 var defaults = {
+		 containerID: 'toTop', // fading element id
+		 containerHoverID: 'toTopHover', // fading element hover id
+		 scrollSpeed: 1200,
+		 easingType: 'linear'
+		 };
+		 */
+		$().UItoTop({easingType: 'easeOutQuart'});
+	});
+</script>
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+<!-- for bootstrap working -->
+<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+
+</body>
+</html>

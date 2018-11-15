@@ -1,0 +1,23 @@
+.hero {
+  margin: 0 auto;
+  width: 500px;
+}
+
+.wrap {
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+}
+
+.text-right {
+  padding: 0 15px;
+}
+
+.spinner{
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -25px; 
+}

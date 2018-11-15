@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Hello D3!</title>
+	<script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+	<style>
+		/*body { margin : 0; }*/
+	</style>
+</head>
+<body>
+
+<div id="d3">
+
+</div>
+
+<script type="text/javascript">
+
+
+	console.log(d3);
+
+
+	var treeData = {
+		"name": "jonathan smith",
+		"children": [
+			{
+				"name": "adam",
+				"children": [
+					{
+						"name": "suzy",
+					},
+					{
+						"name": "clare",
+					},
+					{
+						"name": "aaron",
+					},
+					{
+						"name": "simon",
+					}
+				]
+			},
+			{
+				"name": "timmy",
+			},
+			{
+				"name": "alison",
+				"children": [
+					{
+						"name": "natasha",
+						"size": 3547
+					},
+					{
+						"name": "zak",
+						"size": 5731
+					}
+				]
+			}
+		]
+	};
+
+	// ---------- workWithArray ----------
+	function drawWithArray() {
+		var data = [
+			{"name": "Jack", "age": 18},
+			{"name": "Linda", "age": 17},
+			{"name": "Jackson", "age": 3},
+			{"name": "qi", "age": 5},
+		];
+		var width = 500;
+		var height = 300;
+		var svg = d3.select('body').append('svg').attr("width", width).attr('height', height);
+
+		var widthScale = d3.scaleLinear().domain([0, 50]).range([0, width]);
+
+		svg.selectAll('rect')
+			.data(data)
+			.enter()
+			.append("rect")
+			.attr("width", function (d) {
+				return widthScale(d.age);
+			})
+			.attr('height', 40)
+			.attr('y', function (d, i) {
+				return i * 60;
+			})
+
+		svg.selectAll('text')
+			.data(data)
+			.enter()
+			.append("text")
+			.attr('fill', "red")
+			.attr('y', function (d, i) {
+				return i * 60 + 25;
+			})
+			.text(function (d) {
+				return d.name;
+			})
+
+
+	}
+
+	// ---------- 过渡 ----------
+	function drawTransition() {
+		var width = 500;
+		var height = 300;
+		var svg = d3.select('body').append('svg').attr("width", width).attr('height', height);
+
+		var circle = svg.append('circle')
+			.attr('cx', 50)
+			.attr('cy', 100)
+			.attr('r', 25)
+			.attr('fill', 'yellow');
+
+		circle.transition()
+			.duration(1000)
+			.attr('cx', 150)
+			.on('end', function () {
+				d3.select(this).attr('fill', 'blue');
+			})
+	}
+
+	// ---------- Enter, Update, Exit ----------
+	function drawWithExit() {
+
+		var width = 500;
+		var height = 300;
+		var svg = d3.select('body').append('svg').attr("width", width).attr('height', height);
+
+		var circle = svg.append('circle')
+			.attr('cx', 50)
+			.attr('cy', 100)
+			.attr('r', 25)
+			.attr('fill', 'red');
+
+		var circle = svg.append('circle')
+			.attr('cx', 50)
+			.attr('cy', 200)
+			.attr('r', 25)
+			.attr('fill', 'yellow');
+
+		var data = [10];
+
+		svg.selectAll('circle')
+			.data(data)
+			.attr('fill', 'green')
+			.exit()
+			.attr('fill', 'blue')
+	}
+
+	// ---------- 生成坐标尺 ----------
+	function drawAxis() {
+
+		var width = 500;
+		var height = 300;
+		var svg = d3.select('body').append('svg').attr("width", width).attr('height', height);
+
+		var margin = {top: 40, right: 40, bottom: 40, left: 40};
+		width = width - margin.left - margin.right;
+		height = height - margin.top - margin.bottom;
+
+		var group = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		var Format = d3.format(',.0f');
+
+		var x = d3.scaleLinear()
+			.range([0, width])
+			.domain([0, 10]);
+
+		var y = d3.scaleLinear()
+			.range([height, 0])
+			.domain([0, 20]);
+
+		// 底部水平
+		var xAxis1 = d3.axisBottom()
+			.scale(x)
+			.tickFormat(function (d) {
+				return '&' + Format(d);
+			})
+			.tickSizeInner(5)
+			.tickSizeOuter(20)
+			.tickPadding(8);
+		group.append("g")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis1);
+
+		// 顶部水平
+		var xAxis2 = d3.axisTop()
+			.scale(x)
+			.tickArguments([5])
+			.tickValues([2, 3, 5, 7])
+			.tickFormat(function (d) {
+				return Format(d) + '*';
+			})
+			.tickPadding(2);
+		group.append("g")
+			.attr("transform", "translate(0,0)")
+			.call(xAxis2);
+
+		// 左边垂直
+		group.append("g").call(d3.axisLeft(y));
+
+		// 右边垂直
+		group.append("g")
+			.attr("transform", "translate(" + width + ",0)")
+			.call(d3.axisRight(y));
+	}
+
+	// ---------- 生成图表 ----------
+	function drawChart() {
+
+		var dataArray = [20, 40, 50];
+
+		var width = 500;
+		var height = 500;
+
+		var eleobj = d3.select('body').append('svg').attr("width", width).attr('height', height);
+
+		var widthScale = d3.scaleLinear().domain([0, 50]).range([0, width]);
+		var color = d3.scaleLinear().domain([0, 50]).range(['red', 'green']);
+
+		eleobj.selectAll('rect')
+			.data(dataArray)
+			.enter()
+			.append("rect")
+			.attr("width", function (d) {
+				return widthScale(d);
+			})
+			.attr('height', 40)
+			.attr('y', function (d, i) {
+				return i * 60;
+			})
+			.attr('fill', function (d) {
+				return color(d);
+			})
+	}
+
+	// ---------- 画路径 ----------
+	function drawPath() {
+
+		var data = [
+			{"x": 0, "y": 10},
+			{"x": 20, "y": 60},
+			{"x": 100, "y": 100}
+		];
+		var width = 500;
+		var height = 300;
+		var svg = d3.select('body').append('svg').attr("width", width).attr('height', height);
+
+		var line = d3.line()
+			.x(function (d) {
+				return d.x;
+			})
+			.y(function (d) {
+				return d.y;
+			})
+
+		var group = svg.append('g')
+			.attr("transform", "translate(10,10)")
+
+		group.selectAll("path")
+			.data([data])
+			.enter()
+			.append("path")
+			.attr("d", line)
+			.attr('fill', 'none')
+			.attr("stroke", "green")
+			.attr('stroke-width', 1);
+	}
+
+	// ---------- 画路径带坐标轴 ----------
+	function drawPathWithAxis() {
+		// set the dimensions and margins of the graph
+		var margin = {top: 20, right: 30, bottom: 20, left: 30},
+			width = 800 - margin.left - margin.right,
+			height = 300 - margin.top - margin.bottom;
+
+		// set the ranges
+		var parseTime = d3.timeParse("%d-%b-%y");
+		var x = d3.scaleTime().range([0, width]);
+		var y = d3.scaleLinear().range([height, 0]);
+
+		// define the line
+		var valueline = d3.line()
+			.x(function (d) {
+				return x(d.date);
+			})
+			.y(function (d) {
+				return y(d.close);
+			});
+
+		// append the svg obgect to the body of the page
+		// appends a 'group' element to 'svg'
+		// moves the 'group' element to the top left margin
+		var svg = d3.select("body").append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+
+		svg.append("rect")
+			.attr("width", "100%")
+			.attr("height", "100%")
+			.attr("fill", "#f7f7f7")
+
+		var group = svg.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+
+		// Get the data
+		d3.csv("d3.csv").then(function (data) {
+
+			// format the data
+			data.forEach(function (d) {
+				d.date = parseTime(d.date);
+				d.close = +d.close;
+			});
+
+			// Scale the range of the data
+			x.domain(d3.extent(data, function (d) {
+				return d.date;
+			}));
+			y.domain([0, d3.max(data, function (d) {
+				return d.close;
+			})]);
+
+			// Add the path.
+			group.append("path")
+				.data([data])
+				.attr("class", "line")
+				.attr("fill", "none")
+				.attr('stroke', "red")
+				.attr("d", valueline);
+
+			// Add the X Axis
+			group.append("g")
+				.attr("transform", "translate(0," + height + ")")
+				.call(
+					d3.axisBottom(x)
+				);
+
+			// Add the Y Axis
+			group.append("g")
+				.call(
+					d3.axisLeft(y)
+						.tickValues([0, 200, 400, 600])
+				);
+
+		});
+	}
+
+	// ---------- 基本形状 ----------
+	function drawBase() {
+
+		var data = [
+			{"name": "Jack", "age": 18},
+			{"name": "Linda", "age": 17},
+			{"name": "Jackson", "age": 3},
+			{"name": "qi", "age": 5},
+		];
+		var width = 500;
+		var height = 300;
+		var svg = d3.select('body').append('svg').attr("width", width).attr('height', height);
+
+		var circle = svg.append('circle')
+			.attr('cx', 250)
+			.attr('cy', 250)
+			.attr('r', 50)
+			.attr('fill', 'red');
+
+		var rect = svg.append('rect')
+			.attr('width', 100)
+			.attr('height', 50)
+			.attr('fill', 'red');
+
+		var line = svg.append('line')
+			.attr('x1', 0)
+			.attr('y1', 0)
+			.attr('x2', 400)
+			.attr('y2', '400')
+			.attr('stroke', 'green')
+			.attr('stroke-width', 10);
+	}
+
+	// ---------- 画圆 ----------
+	function drawCircle() {
+		var width = 500;
+		var height = 300;
+		var svg = d3.select('body').append('svg').attr("width", width).attr('height', height);
+
+		var group = svg.append('g')
+			.attr("transform", "translate(200,200)")
+
+		var r = 100;
+		var p = Math.PI * 2;
+
+		var arc = d3.arc()
+			.innerRadius(r - 30)
+			.outerRadius(r)
+			.startAngle(0)
+			.endAngle(p - 1)
+
+		group.append("path")
+			.attr("d", arc)
+			.attr('fill', 'green')
+	}
+
+	// ---------- 画圆形图表 ----------
+	function drawArcChart() {
+		var width = 300;
+		var height = 300;
+		var svg = d3.select('body').append('svg').attr("width", width).attr('height', height);
+		var group = svg.append('g')
+			.attr("transform", "translate(150,150)")
+
+		var data = [10, 50, 80];
+		var color = d3.scaleOrdinal().range(['red', 'green', 'blue']);
+		var r = 100;
+
+		var arc = d3.arc()
+			.innerRadius(r - 40)
+			.outerRadius(r)
+		var pie = d3.pie()
+			.value(function (d) {
+				return d;
+			})
+		var arcs = group.selectAll('.arc')
+			.data(pie(data))
+			.enter()
+			.append('g')
+			.attr("class", "arc")
+
+		arcs.append('path')
+			.attr('d', arc)
+			.attr('fill', function (d) {
+				return color(d.data);
+			})
+
+		arcs.append('text')
+			.attr('transform', function (d) {
+				return "translate(" + arc.centroid(d) + ")";
+			})
+			.attr('text-anchor', 'middle')
+			.attr('font-size', '13px')
+			.attr('fill', 'white')
+			.text(function (d) {
+				return d.data;
+			})
+
+
+	}
+
+	// ---------- 画树形图表 用户交互 ----------
+	function drawTreeWithEvent() {
+
+		var margin = {top: 0, right: 80, bottom: 80, left: 80},
+			width = 600 - margin.left - margin.right,
+			height = 400 - margin.top - margin.bottom
+
+		var treemap = d3.tree().size([height, width]);
+		var rootNode = d3.hierarchy(treeData, function (d) {
+			return d.children;
+		});
+		rootNode = treemap(rootNode);
+
+		var svg = d3.select("body").append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom);
+
+		svg.append("rect")
+			.attr("width", "100%")
+			.attr("height", "100%")
+			.attr("fill", "#f7f7f7")
+
+		var group = svg.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		// ------------------
+
+		var i = 0, duration = 750;
+
+		rootNode.x0 = height / 2;
+		rootNode.y0 = 0;
+
+		// 折叠子节点
+		// rootNode.children.forEach(collapse);
+		collapse(rootNode);
+
+		// 更新更新
+		update(rootNode);
+
+		// 折叠子节点
+		function collapse(d) {
+			if (d.children) {
+				d._children = d.children
+				d._children.forEach(collapse)
+				d.children = null
+			}
+		}
+
+		// 更新更新
+		function update(source) {
+
+			// Compute the new tree layout.
+			var nodes = rootNode.descendants(),
+				links = rootNode.descendants().slice(1);
+
+			// Normalize for fixed-depth.
+			nodes.forEach(function (d) {
+				d.y = d.depth * 180
+			});
+
+			// ****************** Nodes section ***************************
+
+			// 更新这个节点
+			var node = group.selectAll('g.node')
+				.data(nodes, function (d) {
+					return d.id || (d.id = ++i);
+				});
+
+			// 事件
+			var nodeEnter = node.enter().append('g')
+				.attr('class', 'node')
+				.attr("transform", function (d) {
+					return "translate(" + source.y0 + "," + source.x0 + ")";
+				})
+				.on('click', click);
+
+			// 添加节点的圆
+			nodeEnter.append('circle')
+				.attr('class', 'node')
+				.attr('r', 1e-6)
+				.style("fill", function (d) {
+					return d._children ? "lightsteelblue" : "#fff";
+				});
+
+			// 添加节点文字
+			nodeEnter.append('text')
+				.attr("dy", ".35em")
+				.attr("x", function (d) {
+					return d.children || d._children ? -13 : 13;
+				})
+				.attr("text-anchor", function (d) {
+					return d.children || d._children ? "end" : "start";
+				})
+				.text(function (d) {
+					return d.data.name;
+				});
+
+			// UPDATE
+			var nodeUpdate = nodeEnter.merge(node);
+
+			// 动画效果
+			nodeUpdate.transition()
+				.duration(duration)
+				.attr("transform", function (d) {
+					return "translate(" + d.y + "," + d.x + ")";
+				});
+
+			// 更新节点样式
+			nodeUpdate.select('circle.node')
+				.attr('r', 10)
+				.style("fill", function (d) {
+					return d._children ? "blue" : "#fff";
+				})
+				.attr('cursor', 'pointer');
+
+
+			// 移除退出节点
+			var nodeExit = node.exit().transition()
+				.duration(duration)
+				.attr("transform", function (d) {
+					return "translate(" + source.y + "," + source.x + ")";
+				})
+				.remove();
+
+			// 退出模式圆为0
+			nodeExit.select('circle')
+				.attr('r', 1e-6);
+
+			// 退出模式透明度
+			nodeExit.select('text')
+				.style('fill-opacity', 1e-6);
+
+			// ****************** links section ***************************
+
+			// 更新连接线
+			var link = group.selectAll('path.link')
+				.data(links, function (d) {
+					return d.id;
+				});
+
+			// 生成新的线
+			var linkEnter = link.enter().insert('path', "g")
+				.attr("class", "link")
+				.attr('fill', 'none')
+				.attr('stroke', 'red')
+				.attr('d', function (d) {
+					var o = {x: source.x0, y: source.y0}
+					return diagonal(o, o)
+				});
+
+			// 更新
+			var linkUpdate = linkEnter.merge(link);
+
+			// 转换回父元素位置
+			linkUpdate.transition()
+				.duration(duration)
+				.attr('d', function (d) {
+					return diagonal(d, d.parent)
+				});
+
+			// 移除存在的线
+			var linkExit = link.exit().transition()
+				.duration(duration)
+				.attr('d', function (d) {
+					var o = {x: source.x, y: source.y}
+					return diagonal(o, o)
+				})
+				.remove();
+
+			// Store the old positions for transition.
+			nodes.forEach(function (d) {
+				d.x0 = d.x;
+				d.y0 = d.y;
+			});
+
+			// 贝塞尔曲线方法
+			function diagonal(s, d) {
+
+				var path = `M ${s.y} ${s.x}
+            C ${(s.y + d.y) / 2} ${s.x},
+              ${(s.y + d.y) / 2} ${d.x},
+              ${d.y} ${d.x}`
+
+				return path
+			}
+
+			// 点击事件
+			function click(d) {
+				if (d.children) {
+					d._children = d.children;
+					d.children = null;
+				} else {
+					d.children = d._children;
+					d._children = null;
+				}
+				update(d);
+			}
+		}
+
+	}
+
+	// ---------- 画树形图表 水平 ----------
+	function drawTreeHorizontal() {
+
+		function linkLine(d) {
+			var temp = "M" + d.y + "," + d.x
+				+ "C" + (d.y + d.parent.y) / 2 + "," + d.x
+				+ " " + (d.y + d.parent.y) / 2 + "," + d.parent.x
+				+ " " + d.parent.y + "," + d.parent.x;
+			return temp;
+		}
+
+		var margin = {top: 80, right: 80, bottom: 80, left: 80},
+			width = 400 - margin.left - margin.right,
+			height = 400 - margin.top - margin.bottom
+
+		var treemap = d3.tree().size([height, width]);
+		var rootNode = d3.hierarchy(treeData, function (d) {
+			return d.children;
+		});
+		rootNode = treemap(rootNode);
+
+		var svg = d3.select("body").append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom);
+
+		svg.append("rect")
+			.attr("width", "100%")
+			.attr("height", "100%")
+			.attr("fill", "#f7f7f7")
+
+		var group = svg.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		// adds the links between the nodes
+		var link = group.selectAll(".link")
+			.data(rootNode.descendants().slice(1))
+			.enter().append("path")
+			.attr("class", "link")
+			.attr("fill", "none")
+			.attr("stroke", "blue")
+			.attr("d", function (d) {
+				return linkLine(d);
+			});
+
+		// adds each node as a group
+		var node = group.selectAll(".node")
+			.data(rootNode.descendants())
+			.enter().append("g")
+			.attr("class", function (d) {
+				return "node" +
+					(d.children ? " node--internal" : " node--leaf");
+			})
+			.attr("transform", function (d) {
+				return "translate(" + d.y + "," + d.x + ")";
+			});
+
+		// adds the circle to the node
+		node.append("circle")
+			.attr("r", 10);
+
+		// adds the text to the node
+		node.append("text")
+			.attr("dy", ".35em")
+			.attr("x", function (d) {
+				return d.children ? -13 : 13;
+			})
+			.style("text-anchor", function (d) {
+				return d.children ? "end" : "start";
+			})
+			.text(function (d) {
+				return d.data.name;
+			});
+	}
+
+	// ---------- 画树形图表 垂直 ----------
+	function drawTreeVertical() {
+
+		function linkLine(d) {
+			var temp = "M" + d.x + "," + d.y
+				+ "C" + d.x + "," + (d.y + d.parent.y) / 2
+				+ " " + d.parent.x + "," + (d.y + d.parent.y) / 2
+				+ " " + d.parent.x + "," + d.parent.y;
+			return temp;
+		}
+
+		var margin = {top: 80, right: 80, bottom: 80, left: 80},
+			width = 400 - margin.left - margin.right,
+			height = 400 - margin.top - margin.bottom;
+
+		// tree init and size
+		var treemap = d3.tree().size([width, height]);
+		var rootNode = d3.hierarchy(treeData);
+		rootNode = treemap(rootNode);
+
+		// 画布初始化
+		var svg = d3.select("body").append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+
+		svg.append("rect")
+			.attr("width", "100%")
+			.attr("height", "100%")
+			.attr("fill", "#f7f7f7")
+
+		var group = svg.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		// adds the links between the nodes
+		var link = group.selectAll(".link")
+			.data(rootNode.descendants().slice(1))
+			.enter().append("path")
+			.attr("class", "link")
+			.attr("fill", "none")
+			.attr("stroke", "red")
+			.attr("d", function (d) {
+				return linkLine(d);
+			});
+
+		// adds each node as a group
+		var node = group.selectAll(".node")
+			.data(rootNode.descendants())
+			.enter().append("g")
+			.attr("class", function (d) {
+				return "node" +
+					(d.children ? " node--internal" : " node--leaf");
+			})
+			.attr("transform", function (d) {
+				return "translate(" + d.x + "," + d.y + ")";
+			});
+
+		// adds the circle to the node
+		node.append("circle")
+			.attr("r", 10)
+			.attr("fill", "green")
+
+		// adds the text to the node
+		node.append("text")
+			.attr("dy", ".35em")
+			.attr("y", function (d) {
+				return d.children ? -20 : 20;
+			})
+			.style("text-anchor", "middle")
+			.text(function (d) {
+				return d.data.name;
+			});
+	}
+
+	// ---------- 绘制直方图布局 ----------
+	function drawHistogramLayout() {
+
+	}
+
+
+</script>
+
+</body>
+</html>

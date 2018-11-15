@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "http://barber-shop.co.nz",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
